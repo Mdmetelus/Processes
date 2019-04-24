@@ -11,6 +11,12 @@ int main(void)
     // Your code here 
     FILE *fp;
     int callFork = fork();
+
+
+    char parent_str[] = "Parent.\n";
+    char child_str[] = "Child.\n";
+
+    if (callFork < 0) {}
     
-    return 0;
+        return 0;
 }
