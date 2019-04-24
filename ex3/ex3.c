@@ -10,6 +10,21 @@
 int main(void)
 {
     // Your code here
+    int callFork= fork();
+    if (callFork < 0)
+    {
+        printf("fork failed");
+        exit(1);
+    }
+    else if (callFork == 0)
+    {
+        printf("This is the Parent: Goodbye\n");
+    }
+    else
+    {
+        printf("This is the Child: Hello\n");
+    }
+    return 0;
 
     return 0;
 }
