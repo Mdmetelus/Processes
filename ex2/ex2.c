@@ -20,8 +20,11 @@ int main(void)
     if (callFork < 0) {
         fprintf(stderr, "fork failed\n");
         exit(1);
-    } else if {
-
+    }
+    else if (callFork == 0) {
+        fwrite(child_str, 1, sizeof(child_str), fp);
+    } else {
+        fwrite(parent_str, 1, sizeof(parent_str), fp);
     }
 
         return 0;
