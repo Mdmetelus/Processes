@@ -10,13 +10,19 @@ int main(void)
 {
     // Your code here 
     FILE *fp;
+    fp = fopen("text.txt", "w");
     int callFork = fork();
 
 
     char parent_str[] = "Parent.\n";
     char child_str[] = "Child.\n";
 
-    if (callFork < 0) {}
-    
+    if (callFork < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(1);
+    } else if {
+
+    }
+
         return 0;
 }
