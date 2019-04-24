@@ -9,6 +9,15 @@
 int main(void)
 {
     // Your code here
+    int x = 100;
 
+    int callFork = fork();
+    
+    if (callFork < 0)
+    {
+        printf("Forked Failed \n");
+        exit(1);
+    }
+    
     return 0;
 }
