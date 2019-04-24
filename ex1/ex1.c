@@ -18,6 +18,19 @@ int main(void)
         printf("Forked Failed \n");
         exit(1);
     }
+    else if (callFork == 0)
+    {
+        printf("This is the Child (pid: %d) \n", (int)getpid());
+        x++;
+        printf("Child - x is now: %d\n", x);
     
+    }
+    else
+    {
+        printf("This is the Parent (pid: %d) of child %d\n", (int)getpid(), callFork);
+        x--;
+        printf("Parent - x is now: %d\n", x);
+    }
+
     return 0;
 }
