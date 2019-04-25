@@ -30,6 +30,11 @@ int main()
     for (int i = 0; i < number_iter; i++)
     {
         
+    }
+
+    average = total / (float)number_iter;
+
+    printf("Average time %f\n", average);
 
     return 0;
 }
