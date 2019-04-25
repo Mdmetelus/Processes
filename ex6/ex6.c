@@ -29,7 +29,14 @@ int main()
 
     for (int i = 0; i < number_iter; i++)
     {
-        
+        clock_gettime(CLOCK_MONOTONIC, &start);
+
+        write(fileno(stdout), NULL, 0);
+
+        clock_gettime(CLOCK_MONOTONIC, &stop);
+
+        difference = BILLION * (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec);
+        total += difference;
     }
 
     average = total / (float)number_iter;
