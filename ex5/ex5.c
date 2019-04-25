@@ -17,6 +17,26 @@ char* msg3 = "hello world #3";
 int main(void)
 {
     // Your code here
-    
+    char inbuf[MSGSIZE];
+    int p[2];
+    pipe(p);
+
+    if (fork() == 0)
+    {
+        // close the read
+        close(p[0]);
+
+        printf("child sending messages\n");
+        write(p[1], msg1, MSGSIZE);
+        write(p[1], msg2, MSGSIZE);
+        write(p[1], msg3, MSGSIZE);
+        // close the write
+        close(p[1]);
+    }
+    else
+    {
+        
+    }
+
     return 0;
 }
