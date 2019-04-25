@@ -27,5 +27,9 @@ int main()
     long difference;
     double average;
 
+    for (int i = 0; i < number_iter; i++)
+    {
+        
+
     return 0;
 }
