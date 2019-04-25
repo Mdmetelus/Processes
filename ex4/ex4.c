@@ -11,13 +11,25 @@
 int main(void)
 {
     // Your code here
-    int caller = fork();
-    if (caller < 0)
+    int callFork = fork();
+    if (callFork < 0)
     {
         fprintf(stderr, "fork failed\n");
         exit(1);
     }
-    
+    else if (callFork == 0)
+    {
+        printf("this is the child: (pid: %d)\n", (int)getpid());
+        char *argv[2];
+        argv[0] = "/bin/ls";
+        argv[1] = NULL;
+        execv(argv[0], argv);
+    }
+    else
+    {
+        wait(NULL);
+        printf("execv went through\n");
+    }
 
     return 0;
 }
