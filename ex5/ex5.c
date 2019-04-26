@@ -35,8 +35,16 @@ int main(void)
     }
     else
     {
-        
-        
+        //close the write
+        close(p[1]);
+        //loop through the info that we piped and print it out
+        for (int i = 0; i < 3; i++)
+        {
+            read(p[0], inbuf, MSGSIZE);
+            printf("parent prints: %s\n", inbuf);
+        }
+        //close read
+        close(p[0]);
     }
 
     return 0;
