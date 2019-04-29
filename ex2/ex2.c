@@ -9,6 +9,23 @@
 int main(void)
 {
     // Your code here 
-    
-    return 0;
+    FILE *fp;
+    fp = fopen("text.txt", "w");
+    int callFork = fork();
+
+
+    char parent_str[] = "Parent.\n";
+    char child_str[] = "Child.\n";
+
+    if (callFork < 0) {
+        fprintf(stderr, "fork failed\n");
+        exit(1);
+    }
+    else if (callFork == 0) {
+        fwrite(child_str, 1, sizeof(child_str), fp);
+    } else {
+        fwrite(parent_str, 1, sizeof(parent_str), fp);
+    }
+
+        return 0;
 }
